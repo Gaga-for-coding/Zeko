@@ -2,6 +2,9 @@ package com.guissisoftware.Zeko.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "LocalUser")
 public class LocalUser {
@@ -24,6 +27,17 @@ public class LocalUser {
 
     @Column(name = "last_name", nullable = false, length = 255)
     private String lastName;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Address> addresses = new ArrayList<>();
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 
     public String getUserName() {
         return userName;
