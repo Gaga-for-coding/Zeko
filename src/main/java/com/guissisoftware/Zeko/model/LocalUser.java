@@ -14,7 +14,7 @@ public class LocalUser {
     private long id;
 
     @Column(name = "username", nullable = false, unique = true)
-    private String userName;
+    private String username;
 
     @Column(name = "password", nullable = false, length = 1000)
     private String password;
@@ -40,11 +40,11 @@ public class LocalUser {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
